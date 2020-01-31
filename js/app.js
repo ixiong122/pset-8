@@ -34,7 +34,6 @@ function init() {
 
 function render() {
   board.forEach(function(mark, index) {
-    console.log(mark, index);
     squares[index].textContent = mark;
   });
 
@@ -44,16 +43,17 @@ function render() {
 
 function takeTurn(e) {
   if (!win) {
-  let index = squares.findIndex(function(square) {
-    return square === e.target;
-  });
-  if (board[index] === "") {
-    board[index] = turn;
-    turn = turn === "X" ? "O" : "X";
-    win = getWinner();
+    let index = squares.findIndex(function(square) {
+      return square === e.target;
+    });
 
-    render();
-   }
+    if (board[index] === "") {
+      board[index] = turn;
+      turn = turn === "X" ? "O" : "X";
+      win = getWinner();
+
+      render();
+    }
   }
 }
 
@@ -64,7 +64,7 @@ function getWinner() {
     if (
       board[condition[0]] &&
       board[condition[0]] === board[condition[1]] &&
-      board[conition[1]] === board[condition[2]]
+      board[condition[1]] === board[condition[2]]
     ) {
       winner = board[condition[0]];
     }
