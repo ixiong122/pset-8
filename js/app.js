@@ -1,4 +1,5 @@
 ///////////////////// CONSTANTS /////////////////////////////////////
+
 const winningConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -9,28 +10,48 @@ const winningConditions = [
   [0, 4, 8],
   [2, 4, 6]
 ];
+
 ///////////////////// APP STATE (VARIABLES) /////////////////////////
+
 let board;
+let turn = "X";
 let win;
+let xScore= 0;
+let oScore = 0;
+
 ///////////////////// CACHED ELEMENT REFERENCES /////////////////////
+
 const squares = Array.from(document.querySelectorAll("#board div"));
 const message = document.querySelector("h2");
+
 ///////////////////// EVENT LISTENERS ///////////////////////////////
-window.onLoad = init;
+
+window.onload = init;
+document.getElementById("firstX").onclick = firstX;
+document.getElementById("firstO").onclick = firstO;
 document.getElementById("board").onclick = takeTurn;
 document.getElementById("reset-button").onclick = init;
+
 ///////////////////// FUNCTIONS /////////////////////////////////////
 function init() {
-  board= [
-    "", "", "",
-    "", "", "",
-    "", "", ""
-  ];
-  turn = "X";
-  win= null;
+  board = ["", "", "", "", "", "", "", "", ""];
+  turn = turn;
+  win = null;
 
   render();
 }
+
+//choose who goes first
+function firstX(){
+  document.getElementById("change").innerHTML = "Turn: X";
+  turn = "X";
+
+}
+function firstO(){
+  document.getElementById("change").innerHTML = "Turn: O";
+  turn = "O";
+}
+ //clear the board when change the turn
 
 function render() {
   board.forEach(function(mark, index) {
@@ -67,8 +88,17 @@ function getWinner() {
       board[condition[1]] === board[condition[2]]
     ) {
       winner = board[condition[0]];
+      if(winner === "X"){
+        xScore++;
+        document.getElementById("firstList").innerHTML = xScore;
+      }
+      if(winner === "O"){
+        oScore++;
+        document.getElementById("secondList").innerHTML = oScore;
+      }
     }
   });
 
   return winner ? winner : board.includes("") ? null : "T";
 }
+//determine score

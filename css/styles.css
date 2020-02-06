@@ -1,6 +1,7 @@
 body {
   text-align: center;
   font-family: "Roboto", monospace;
+  background-color: lightblue;
 }
 
 h1 {
@@ -93,3 +94,39 @@ h2 {
   user-select: none;
   width: 150px;
 }
+#firstX {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#firstX:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+#firstY {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#firstY:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+#xScore {
+   list-style-type: none;
+   text-align: left;
+ }
+#oScore {
+   list-style-type: none;
+   text-align: right;
+ }
