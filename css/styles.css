@@ -108,7 +108,7 @@ h2 {
   background-color: lightgray;
   cursor: pointer;
 }
-#firstY {
+#firstO {
   background-color: grey;
   border: none;
   color: white;
@@ -118,15 +118,15 @@ h2 {
   display: inline-block;
   font-size: 16px;
 }
-#firstY:hover {
+#firstO:hover {
   background-color: lightgray;
   cursor: pointer;
 }
 #xScore {
    list-style-type: none;
-   text-align: left;
+   /* text-align: left; */
  }
 #oScore {
    list-style-type: none;
-   text-align: right;
+   /* text-align: right; */
  }
