@@ -124,9 +124,9 @@ h2 {
 }
 #xScore {
    list-style-type: none;
-   /* text-align: left; */
+   float: left;
  }
 #oScore {
    list-style-type: none;
-   /* text-align: right; */
+   float: right;
  }

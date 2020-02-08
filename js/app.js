@@ -32,6 +32,7 @@ document.getElementById("firstO").onclick = firstO;
 document.getElementById("board").onclick = takeTurn;
 document.getElementById("reset-button").onclick = init;
 
+
 ///////////////////// FUNCTIONS /////////////////////////////////////
 function init() {
   board = ["", "", "", "", "", "", "", "", ""];
