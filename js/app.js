@@ -18,6 +18,7 @@ let turn = "X";
 let win;
 let xScore= 0;
 let oScore = 0;
+let tieScore = 0;
 
 ///////////////////// CACHED ELEMENT REFERENCES /////////////////////
 
@@ -109,6 +110,10 @@ function getWinner() {
       if(winner === "O"){
         oScore++;
         document.getElementById("secondList").innerHTML = oScore;
+      }
+      if (win === "T") {
+        tieScore++;
+        document.getElementById("thirdList").innerHTML = tieScore;
       }
     }
   });

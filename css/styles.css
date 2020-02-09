@@ -130,3 +130,7 @@ h2 {
    list-style-type: none;
    float: right;
  }
+ #tieScore {
+    list-style-type: none;
+    /* float: right; */
+  }
