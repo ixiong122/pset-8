@@ -90,6 +90,10 @@ function takeTurn(e) {
 
       render();
     }
+    if (win === "T") {
+      tieScore++;
+      document.getElementById("thirdList").innerHTML = tieScore;
+    }
   }
 }
 
@@ -110,10 +114,6 @@ function getWinner() {
       if(winner === "O"){
         oScore++;
         document.getElementById("secondList").innerHTML = oScore;
-      }
-      if (win === "T") {
-        tieScore++;
-        document.getElementById("thirdList").innerHTML = tieScore;
       }
     }
   });
