@@ -56,7 +56,7 @@ h2 {
  */
 
 .square:hover {
-  background-color: lightgray;
+  background-color: white;
   cursor: pointer;
 }
 

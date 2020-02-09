@@ -31,8 +31,8 @@ document.getElementById("firstX").onclick = firstX;
 document.getElementById("firstO").onclick = firstO;
 document.getElementById("board").onclick = takeTurn;
 document.getElementById("reset-button").onclick = init;
-
-
+document.getElementById("firstX").onclick = init2;
+document.getElementById("firstO").onclick = init3;
 ///////////////////// FUNCTIONS /////////////////////////////////////
 function init() {
   board = ["", "", "", "", "", "", "", "", ""];
@@ -41,7 +41,20 @@ function init() {
 
   render();
 }
+function init2() {
+  board = ["", "", "", "", "", "", "", "", ""];
+  turn = "X";
+  win = null;
 
+  render();
+}
+function init3() {
+  board = ["", "", "", "", "", "", "", "", ""];
+  turn = "O";
+  win = null;
+
+  render();
+}
 //choose who goes first
 function firstX(){
   document.getElementById("change").innerHTML = "Turn: X";
