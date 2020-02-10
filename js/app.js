@@ -58,7 +58,7 @@ function init3() {
 
 	render();
 }
-//choose who goes first
+
 function firstX() {
 	document.getElementById("change").innerHTML = "Turn: X";
 	turn = "X";
@@ -69,7 +69,6 @@ function firstO() {
 	document.getElementById("change").innerHTML = "Turn: O";
 	turn = "O";
 }
-//clear the board when change the turn
 
 function render() {
 	board.forEach(function (mark, index) {
