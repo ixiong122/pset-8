@@ -1,14 +1,14 @@
 ///////////////////// CONSTANTS /////////////////////////////////////
 
 const winningConditions = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
+	[0, 1, 2],
+	[3, 4, 5],
+	[6, 7, 8],
+	[0, 3, 6],
+	[1, 4, 7],
+	[2, 5, 8],
+	[0, 4, 8],
+	[2, 4, 6]
 ];
 
 ///////////////////// APP STATE (VARIABLES) /////////////////////////
@@ -16,7 +16,7 @@ const winningConditions = [
 let board;
 let turn = "X";
 let win;
-let xScore= 0;
+let xScore = 0;
 let oScore = 0;
 let tieScore = 0;
 
@@ -36,88 +36,91 @@ document.getElementById("firstX").onclick = init2;
 document.getElementById("firstO").onclick = init3;
 ///////////////////// FUNCTIONS /////////////////////////////////////
 function init() {
-  board = ["", "", "", "", "", "", "", "", ""];
-  turn = turn;
-  win = null;
+	board = ["", "", "", "", "", "", "", "", ""];
+	turn = turn;
+	win = null;
 
-  render();
+	render();
 }
+
 function init2() {
-  board = ["", "", "", "", "", "", "", "", ""];
-  turn = "X";
-  win = null;
+	board = ["", "", "", "", "", "", "", "", ""];
+	turn = "X";
+	win = null;
 
-  render();
+	render();
 }
-function init3() {
-  board = ["", "", "", "", "", "", "", "", ""];
-  turn = "O";
-  win = null;
 
-  render();
+function init3() {
+	board = ["", "", "", "", "", "", "", "", ""];
+	turn = "O";
+	win = null;
+
+	render();
 }
 //choose who goes first
-function firstX(){
-  document.getElementById("change").innerHTML = "Turn: X";
-  turn = "X";
+function firstX() {
+	document.getElementById("change").innerHTML = "Turn: X";
+	turn = "X";
 
 }
-function firstO(){
-  document.getElementById("change").innerHTML = "Turn: O";
-  turn = "O";
+
+function firstO() {
+	document.getElementById("change").innerHTML = "Turn: O";
+	turn = "O";
 }
- //clear the board when change the turn
+//clear the board when change the turn
 
 function render() {
-  board.forEach(function(mark, index) {
-    squares[index].textContent = mark;
-  });
+	board.forEach(function (mark, index) {
+		squares[index].textContent = mark;
+	});
 
-  message.textContent =
-    win === "T" ? "It's a tie!" : win ? `${win} wins!` : `Turn: ${turn}`;
+	message.textContent =
+		win === "T" ? "It's a tie!" : win ? `${win} wins!` : `Turn: ${turn}`;
 }
 
 function takeTurn(e) {
-  if (!win) {
-    let index = squares.findIndex(function(square) {
-      return square === e.target;
-    });
+	if (!win) {
+		let index = squares.findIndex(function (square) {
+			return square === e.target;
+		});
 
-    if (board[index] === "") {
-      board[index] = turn;
-      turn = turn === "X" ? "O" : "X";
-      win = getWinner();
+		if (board[index] === "") {
+			board[index] = turn;
+			turn = turn === "X" ? "O" : "X";
+			win = getWinner();
 
-      render();
-    }
-    if (win === "T") {
-      tieScore++;
-      document.getElementById("thirdList").innerHTML = tieScore;
-    }
-  }
+			render();
+		}
+		if (win === "T") {
+			tieScore++;
+			document.getElementById("thirdList").innerHTML = tieScore;
+		}
+	}
 }
 
 function getWinner() {
-  let winner = null;
+	let winner = null;
 
-  winningConditions.forEach(function(condition, index) {
-    if (
-      board[condition[0]] &&
-      board[condition[0]] === board[condition[1]] &&
-      board[condition[1]] === board[condition[2]]
-    ) {
-      winner = board[condition[0]];
-      if(winner === "X"){
-        xScore++;
-        document.getElementById("firstList").innerHTML = xScore;
-      }
-      if(winner === "O"){
-        oScore++;
-        document.getElementById("secondList").innerHTML = oScore;
-      }
-    }
-  });
+	winningConditions.forEach(function (condition, index) {
+		if (
+			board[condition[0]] &&
+			board[condition[0]] === board[condition[1]] &&
+			board[condition[1]] === board[condition[2]]
+		) {
+			winner = board[condition[0]];
+			if (winner === "X") {
+				xScore++;
+				document.getElementById("firstList").innerHTML = xScore;
+			}
+			if (winner === "O") {
+				oScore++;
+				document.getElementById("secondList").innerHTML = oScore;
+			}
+		}
+	});
 
-  return winner ? winner : board.includes("") ? null : "T";
+	return winner ? winner : board.includes("") ? null : "T";
 }
 //determine score
